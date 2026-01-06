@@ -1,12 +1,11 @@
 import './App.css'
+import Home from './components/home.jsx'
 
 function App() {
 
   return (
     <>
-      <p className="read-the-docs">
-        Starting to build new application for jns fitness
-      </p>
+      <Home />
     </>
   )
 }
