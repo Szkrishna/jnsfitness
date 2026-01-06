@@ -5,6 +5,10 @@
   padding: 1rem 2rem;
   background-color: #1a1a1a;
   border-bottom: 1px solid #333;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo a {
