@@ -13,19 +13,34 @@ This project is a web application built with React. The goal is to create a mode
 *   **Fonts:** System default fonts.
 *   **Components:** Default `App.jsx` component.
 
-### Version (v0.4)
+### Version (v0.6)
 
+*   **Framework:** React (Vite) with `react-router-dom` for routing.
 *   **Styling:**
     *   **Enhanced Dark Theme:** A modern, visually rich dark theme has been implemented with a fullscreen background.
     *   **Fonts:** 'Montserrat' imported from Google Fonts for a clean and modern look.
     *   **Title Styling:** The main title "JNS Fitness" has been styled with a vibrant color gradient.
-*   **Components:** `App.jsx` has a basic structure with a card, title, text, and button.
+    *   **Component-Specific Styles:** Components have their own dedicated CSS files for better organization.
+*   **Components:**
+    *   The UI has been refactored into pages (`Home`, `About`, `SportsAcademy`, `FitnessClub`, `Coliving`).
+    *   A `Header` component has been added with a logo and navigation links.
+*   **Routing:** Basic routing is set up for all pages.
 
-## Current Change: Title Gradient
+## Current Change: Add Header and Navigation
 
 ### Plan
 
-1.  **Update `blueprint.md` to document the title styling change.**
-2.  **Modify `src/App.css` to apply a gradient to the `h1` element.**
-    *   Apply a linear gradient background to the `h1`.
-    *   Use `background-clip: text` and `text-fill-color: transparent` to make the text show the gradient.
+1.  **Update `blueprint.md` to document the new header and routing.**
+2.  **Install `react-router-dom` for handling navigation.**
+3.  **Create a `Header` component (`src/components/Header.jsx`) with a logo and navigation links.**
+4.  **Create a CSS file for the header (`src/components/Header.css`).**
+5.  **Restructure the project to use a `pages` directory.**
+    *   Move `src/components/home.jsx` to `src/pages/Home.jsx`.
+    *   Move `src/components/home.css` to `src/pages/Home.css`.
+    *   Update import paths in `Home.jsx`.
+6.  **Create placeholder components for the new pages:**
+    *   `src/pages/About.jsx`
+    *   `src/pages/SportsAcademy.jsx`
+    *   `src/pages/FitnessClub.jsx`
+    *   `src/pages/Coliving.jsx`
+7.  **Update `App.jsx` to set up routing using `react-router-dom` and include the `Header` component.**
