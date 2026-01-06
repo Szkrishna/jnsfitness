@@ -1,9 +1,9 @@
 function SportsAcademy() {
   return (
     <div className="app-container">
-      <div className="card">
+      <div className="container">
         <h1>Sports Academy</h1>
-        <p>Details about the sports academy.</p>
+        <p className="read-the-docs">Details about the sports academy.</p>
       </div>
     </div>
   );

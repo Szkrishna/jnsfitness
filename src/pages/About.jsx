@@ -1,9 +1,9 @@
 function About() {
   return (
     <div className="app-container">
-      <div className="card">
+      <div className="container">
         <h1>About JNS Fitness</h1>
-        <p>Information about the company.</p>
+        <p className="read-the-docs">Information about the company.</p>
       </div>
     </div>
   );
