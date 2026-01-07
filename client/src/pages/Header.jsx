@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 const navItemBase =
-  'relative flex items-center justify-center h-10 w-[140px] text-sm font-medium rounded-md transition-colors duration-300';
+  'relative flex items-center justify-center h-10 w-[120px] text-sm font-medium rounded-md transition-colors duration-300';
 
 function Header() {
   const linkClasses = ({ isActive }) =>
@@ -51,10 +51,10 @@ function Header() {
             About
           </NavLink>
           <NavLink to="/sports-academy" className={linkClasses}>
-            Sports Academy
+            Academy
           </NavLink>
           <NavLink to="/fitness-club" className={linkClasses}>
-            Fitness Club
+            Fitness
           </NavLink>
           <NavLink to="/coliving" className={linkClasses}>
             Coliving
