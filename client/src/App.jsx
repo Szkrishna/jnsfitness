@@ -5,12 +5,14 @@ import About from './pages/About';
 import SportsAcademy from './pages/SportsAcademy';
 import FitnessClub from './pages/FitnessClub';
 import Coliving from './pages/Coliving';
+import Footer from './pages/Footer';
 import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -18,6 +20,8 @@ function App() {
         <Route path="/fitness-club" element={<FitnessClub />} />
         <Route path="/coliving" element={<Coliving />} />
       </Routes>
+
+      <Footer />
     </BrowserRouter>
   );
 }
