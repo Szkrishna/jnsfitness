@@ -19,7 +19,7 @@ This project is a web application built with React. The goal is to create a mode
 *   **Styling:**
     *   **Enhanced Dark Theme:** A modern, visually rich dark theme has been implemented with a fullscreen background.
     *   **Fonts:** 'Montserrat' imported from Google Fonts for a clean and modern look.
-    *   **Title Styling:** The main title "JNS Fitness" has been styled with a vibrant color gradient.
+    *   **Title Styling:** The main title "JNS" has been styled with a vibrant color gradient.
     *   **Component-Specific Styles:** Components have their own dedicated CSS files for better organization.
 *   **Components:**
     *   The UI has been refactored into pages (`Home`, `About`, `SportsAcademy`, `FitnessClub`, `Coliving`).

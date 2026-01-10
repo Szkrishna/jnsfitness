@@ -37,13 +37,13 @@ function About() {
           className="text-center mb-20"
         >
           <span className="inline-block text-xs uppercase tracking-[0.3em] text-indigo-400 mb-4 font-semibold">
-            About JNS Fitness
+            About JNS
           </span>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight bg-gradient-to-b from-white via-gray-300 to-gray-500 bg-clip-text text-transparent mb-8">
             Fitness. Sports. <br /> Lifestyle.
           </h1>
           <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-            JNS Fitness is a growing lifestyle ecosystem. We aim to build environments
+            JNS is a growing lifestyle ecosystem. We aim to build environments
             where individuals can train, stay, and grow with discipline and purpose.
           </p>
         </motion.div>

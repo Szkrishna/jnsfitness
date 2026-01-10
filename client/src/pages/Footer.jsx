@@ -89,7 +89,7 @@ const Footer = () => {
 
           <div className="pt-8 pb-4 flex flex-col md:flex-row justify-between items-start gap-4 text-xs uppercase tracking-[0.15em] text-gray-500 font-medium text-left">
             <p className="hover:text-gray-300 transition-colors cursor-default">
-              © 2026 JNS Fitness Ecosystem. All rights reserved.
+              © 2026 JNS Ecosystem. All rights reserved.
             </p>
 
             <div className="flex items-center gap-3 self-start">
