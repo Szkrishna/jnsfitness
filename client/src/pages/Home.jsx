@@ -5,10 +5,11 @@ import { useEffect, useRef } from "react";
 
 // Swiper Imports
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Navigation, Autoplay } from "swiper/modules";
+import { EffectCoverflow, Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 import heroVideo from "../assets/videos/elite_stay/elite_video.mp4";
 import gymImg from '../assets/images/fitness_studio/gym_img2.jpeg';
@@ -40,10 +41,9 @@ function Home() {
 
   return (
     <div className="bg-black text-white px-6 md:px-16 lg:px-24">
-      {/* 1. HERO SECTION - Fixed White Spaces & Centered Content */}
+      
+      {/* 1. HERO SECTION */}
       <section className="mt-10 relative max-h-[70vh] w-full flex items-center justify-center overflow-hidden bg-black rounded-[2rem] shadow-2xl">
-
-        {/* Video Background - scale-105 ensures no white edges appear behind rounded corners */}
         <div className="absolute inset-0 z-0 overflow-hidden rounded-[2rem]">
           <video
             ref={videoRef}
@@ -55,16 +55,11 @@ function Home() {
           >
             <source src={heroVideo} type="video/mp4" />
           </video>
-
-          {/* Dark Overlay - Critical for text readability */}
           <div className="absolute inset-0 bg-black/60 z-[1]" />
-
-          {/* Background Glows */}
           <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] animate-pulse z-[2]" />
           <div className="absolute bottom-20 -right-20 w-[400px] h-[400px] bg-purple-600/20 rounded-full blur-[100px] z-[2]" />
         </div>
 
-        {/* Content Wrapper */}
         <div className="relative z-10 text-center max-w-4xl px-6 py-12">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
@@ -73,7 +68,6 @@ function Home() {
           >
             Gurugram's Ultimate Fitness Destination
           </motion.span>
-
           <motion.h1
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -82,7 +76,6 @@ function Home() {
           >
             TRAIN. LIVE. <br /> <span className="text-white">EVOLVE.</span>
           </motion.h1>
-
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -95,11 +88,12 @@ function Home() {
       </section>
 
       {/* 2. THE ECOSYSTEM SECTION */}
-      <section className="py-16 max-w-7xl mx-auto text-left">
+      <section className="py-20 max-w-7xl mx-auto text-left">
         <div className="mb-12">
-          <h2 className="text-4xl font-bold tracking-tight uppercase">The Ecosystem</h2>
-          <div className="h-[2px] w-20 bg-indigo-600 mt-2 mb-2"></div>
-          <p className="text-gray-500 text-sm">Everything you need to reach your peak performance.</p>
+          <span className="text-indigo-500 font-bold tracking-widest uppercase text-xs">Our Core</span>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mt-2">The <span className="text-indigo-500">Ecosystem</span></h2>
+          <div className="h-[2px] w-12 bg-indigo-600 mt-4"></div>
+          <p className="text-gray-500 text-sm mt-4">Everything you need to reach your peak performance.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <EcoCard to="/sports-academy" title="Academy" bgImage={badmintonImg} status="Operating" statusColor="text-green-400" />
@@ -109,23 +103,19 @@ function Home() {
       </section>
 
       {/* 3. BROWSE ACCOMMODATION SECTION */}
-      <section className="py-16 max-w-7xl mx-auto overflow-visible">
-        <div className="mb-8">
-          <h2 className="text-4xl font-bold tracking-tight uppercase">
+      <section className="py-20 max-w-7xl mx-auto overflow-visible">
+        <div className="mb-12">
+          <span className="text-indigo-500 font-bold tracking-widest uppercase text-xs">Premium Stays</span>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mt-2">
             Browse <span className="text-indigo-500">Accommodation</span>
           </h2>
-          <div className="h-[2px] w-20 bg-indigo-600 mt-2 mb-2"></div>
-          <p className="text-gray-500 text-sm">Premium living spaces curated for your comfort and lifestyle.</p>
+          <div className="h-[2px] w-12 bg-indigo-600 mt-4"></div>
+          <p className="text-gray-500 text-sm mt-4">Luxury living spaces curated for your comfort and lifestyle.</p>
         </div>
 
-        <div className="relative py-10 group/swiper-container">
-          {/* Side Buttons positioned over images */}
-          <button className="swiper-prev-button absolute left-2 md:left-[-20px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/20 bg-black/50 backdrop-blur-md flex items-center justify-center hover:bg-indigo-600 transition-all text-white opacity-0 group-hover/swiper-container:opacity-100">
-            ←
-          </button>
-          <button className="swiper-next-button absolute right-2 md:right-[-20px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/20 bg-black/50 backdrop-blur-md flex items-center justify-center hover:bg-indigo-600 transition-all text-white opacity-0 group-hover/swiper-container:opacity-100">
-            →
-          </button>
+        <div className="relative group/swiper-container">
+          <button className="swiper-prev-button absolute left-2 md:left-[-20px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/20 bg-black/50 backdrop-blur-md flex items-center justify-center hover:bg-indigo-600 transition-all text-white opacity-0 group-hover/swiper-container:opacity-100">←</button>
+          <button className="swiper-next-button absolute right-2 md:right-[-20px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/20 bg-black/50 backdrop-blur-md flex items-center justify-center hover:bg-indigo-600 transition-all text-white opacity-0 group-hover/swiper-container:opacity-100">→</button>
 
           <Swiper
             effect={"coverflow"}
@@ -134,17 +124,8 @@ function Home() {
             slidesPerView={"auto"}
             loop={true}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
-            coverflowEffect={{
-              rotate: 35,
-              stretch: 0,
-              depth: 200,
-              modifier: 1,
-              slideShadows: true
-            }}
-            navigation={{
-              nextEl: ".swiper-next-button",
-              prevEl: ".swiper-prev-button",
-            }}
+            coverflowEffect={{ rotate: 35, stretch: 0, depth: 200, modifier: 1, slideShadows: true }}
+            navigation={{ nextEl: ".swiper-next-button", prevEl: ".swiper-prev-button" }}
             modules={[EffectCoverflow, Navigation, Autoplay]}
             className="w-full"
           >
@@ -163,44 +144,86 @@ function Home() {
         </div>
       </section>
 
-      {/* 4. CUSTOMER REVIEWS SECTION (NEW) */}
+      {/* 4. CUSTOMER REVIEWS SECTION */}
       <section className="py-20 max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold tracking-tight uppercase">How Our Community <span className="text-indigo-500">Feels</span></h2>
-          <div className="h-[2px] w-20 bg-indigo-600 mt-2 mx-auto mb-4"></div>
-          <div className="flex items-center justify-center gap-2">
+        <div className="mb-12">
+          <span className="text-indigo-500 font-bold tracking-widest uppercase text-xs">Testimonials</span>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mt-2">
+            How Our <span className="text-indigo-500">Community</span> Feels
+          </h2>
+          <div className="h-[2px] w-12 bg-indigo-600 mt-4"></div>
+          <div className="flex items-center gap-4 mt-6">
             <span className="text-green-400 font-bold">Excellent</span>
             <div className="flex text-green-400 text-lg">★★★★★</div>
-            <span className="text-gray-400 text-sm">Based on 8,738 reviews</span>
+            <span className="text-gray-500 text-sm italic">8,738 Verified Reviews</span>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <ReviewCard 
-            title="It was helpful" 
-            text="The trainers provided excellent guidance for my personalized fitness journey. Truly elite experience." 
-            author="Melek" 
-            time="18 hours ago" 
-          />
-          <ReviewCard 
-            title="Professional Service" 
-            text="The sports academy facilities are top-notch. My badminton technique improved significantly in just a month." 
-            author="Mahathy" 
-            time="19 hours ago" 
-          />
-          <ReviewCard 
-            title="Clear and stress-free" 
-            text="The co-living spaces are modern, clean, and provide a great community atmosphere. Highly recommend!" 
-            author="Greeshma" 
-            time="22 hours ago" 
-          />
+          <ReviewCard title="It was helpful" text="The trainers provided excellent guidance for my fitness journey. Truly elite experience." author="Melek" time="18 hours ago" />
+          <ReviewCard title="Professional Service" text="Top-notch facilities. My badminton technique improved significantly in just a month." author="Mahathy" time="19 hours ago" />
+          <ReviewCard title="Clear and stress-free" text="The co-living spaces are modern, clean, and provide a great community atmosphere." author="Greeshma" time="22 hours ago" />
         </div>
       </section>
+
+      {/* 5. JNS MEMORIES SECTION */}
+      <section className="py-20 max-w-7xl mx-auto">
+        <div className="mb-12">
+          <span className="text-indigo-500 font-bold tracking-widest uppercase text-xs">Life at JNS</span>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mt-2">
+            <span className="text-indigo-500">JNS</span> We Create Memories
+          </h2>
+          <div className="h-[2px] w-12 bg-indigo-600 mt-4"></div>
+          <p className="text-gray-500 text-sm mt-4 italic">Spark while you stay by enjoying events, festivals, and celebrations.</p>
+        </div>
+
+        <div className="relative group/memories">
+          <Swiper
+            modules={[Navigation, Autoplay, Pagination]}
+            spaceBetween={30}
+            slidesPerView={1}
+            breakpoints={{ 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 5000 }}
+            className="pb-16"
+          >
+            <SwiperSlide>
+              <div className="grid grid-cols-2 gap-2 aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+                <img src={eliteImg} className="w-full h-full object-cover hover:scale-110 transition duration-500" alt="M1" />
+                <img src={roostImg} className="w-full h-full object-cover hover:scale-110 transition duration-500" alt="M2" />
+                <img src={sunriseImg} className="w-full h-full object-cover hover:scale-110 transition duration-500" alt="M3" />
+                <img src={gymImg} className="w-full h-full object-cover hover:scale-110 transition duration-500" alt="M4" />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+                <img src={badmintonImg} className="w-full h-full object-cover" alt="Event" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 flex items-end p-6">
+                  <span className="text-xs font-bold tracking-widest uppercase text-white/80">Festival Nights</span>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-2xl group">
+                <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                  <source src={heroVideo} type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-all">
+                  <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 group-hover:scale-110 transition">
+                    <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-white border-b-[10px] border-b-transparent ml-1" />
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          </Swiper>
+        </div>
+      </section>
+
     </div>
   );
 }
 
-// --- Sub-components ---
+// --- Sub-components (Unchanged logic, just styled for consistency) ---
 function EcoCard({ to, title, bgImage, status, statusColor }) {
   return (
     <motion.div variants={itemVariants}>
@@ -222,30 +245,20 @@ function EcoCard({ to, title, bgImage, status, statusColor }) {
 
 function PropertyCard({ name, image }) {
   return (
-    <div className="group relative w-full aspect-[1/1] cursor-pointer rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-      <img
-        src={image}
-        alt={name}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-80"
-      />
+    <div className="group relative w-full aspect-square cursor-pointer rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+      <img src={image} alt={name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-80" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90" />
       <div className="absolute bottom-0 left-0 p-6 w-full text-center">
-        <h3 className="text-xl font-medium text-white tracking-[0.25em] uppercase mb-1 drop-shadow-lg transition-colors group-hover:text-indigo-400">
-          {name}
-        </h3>
+        <h3 className="text-xl font-medium text-white tracking-[0.25em] uppercase mb-1 drop-shadow-lg transition-colors group-hover:text-indigo-400">{name}</h3>
         <div className="h-[1px] w-0 bg-indigo-500 group-hover:w-16 transition-all duration-700 mx-auto" />
       </div>
-      <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
     </div>
   );
 }
 
 function ReviewCard({ title, text, author, time }) {
   return (
-    <motion.div 
-      whileHover={{ y: -10 }}
-      className="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:border-indigo-500/50 transition-all duration-300"
-    >
+    <motion.div whileHover={{ y: -10 }} className="bg-white/5 border border-white/10 p-8 rounded-[2rem] hover:border-indigo-500/50 transition-all duration-300">
       <div className="flex text-green-400 mb-4 text-sm">★★★★★ <span className="ml-2 text-white/40 text-xs uppercase tracking-widest">• Verified</span></div>
       <h4 className="text-xl font-bold mb-3">{title}</h4>
       <p className="text-gray-400 text-sm leading-relaxed mb-6 italic">"{text}"</p>
