@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+import { motion } from "framer-motion";
 import { FaInstagram, FaYoutube, FaLinkedin, FaMapMarkerAlt, FaEnvelope, FaPhone, FaPaperPlane } from "react-icons/fa";
 
 // Animation Variants
@@ -24,7 +26,7 @@ function About() {
       <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px]" />
       <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[120px]" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-20">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-20">
 
         {/* --- Top Section: Identity (Unchanged) --- */}
         <motion.div

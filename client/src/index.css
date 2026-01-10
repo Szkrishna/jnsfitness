@@ -40,6 +40,5 @@
 body {
   margin: 0;
   padding: 0;
-  @apply px-6 md:px-16 lg:px-24; 
   background-color: black;
 }

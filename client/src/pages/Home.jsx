@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
+
 // 1. Define Animation Variants
 const containerVariants = {
   hidden: { opacity: 0 },
