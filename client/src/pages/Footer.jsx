@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { FaInstagram, FaYoutube, FaLinkedin, FaMapMarkerAlt, FaEnvelope, FaPhone } from "react-icons/fa";
 
 const Footer = () => {
