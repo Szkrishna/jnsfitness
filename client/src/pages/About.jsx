@@ -181,11 +181,11 @@ function About() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="rounded-[2rem] overflow-hidden border border-white/10 h-[400px] relative shadow-2xl z-0"
+          className="rounded-[1rem] overflow-hidden border border-white/10 h-[400px] relative shadow-2xl z-0"
         >
           <MapContainer
             center={position}
-            zoom={15}
+            zoom={16}
             scrollWheelZoom={false}
             style={{ height: "100%", width: "100%", filter: "invert(100%) hue-rotate(180deg) brightness(0.95) contrast(0.9)" }}
           >
@@ -235,12 +235,5 @@ function ContactInfo({ icon, title, detail }) {
   );
 }
 
-function SocialIcon({ icon, link, color }) {
-  return (
-    <motion.a href={link} whileHover={{ y: -5, scale: 1.2 }} className={`text-3xl text-gray-600 transition-colors ${color}`}>
-      {icon}
-    </motion.a>
-  );
-}
 
 export default About;
