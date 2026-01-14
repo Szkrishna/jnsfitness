@@ -227,16 +227,29 @@ function Home() {
 function EcoCard({ to, title, bgImage, status, statusColor }) {
   return (
     <motion.div variants={itemVariants}>
-      <NavLink to={to} className="group relative block overflow-hidden rounded-3xl min-h-[300px] border border-white/10 transition-all duration-500">
+      <NavLink to={to} className="group relative block overflow-hidden rounded-3xl min-h-[350px] border border-white/10 transition-all duration-500">
         <div className="absolute inset-0 z-0">
-          <img src={bgImage} alt={title} className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" />
+          <img src={bgImage} alt={title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         </div>
-        <div className="relative z-10 p-8 flex flex-col justify-between items-start text-left min-h-[300px]">
-          <h3 className="text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors">{title}</h3>
-          <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 bg-black/60 border border-white/20 rounded-full ${statusColor}`}>
-            {status}
-          </span>
+        
+        <div className="relative z-10 p-8 flex flex-col justify-between items-start text-left min-h-[350px]">
+          <div>
+            <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 bg-black/60 border border-white/20 rounded-full ${statusColor}`}>
+              {status}
+            </span>
+            <h3 className="text-3xl font-bold text-white mt-4 group-hover:text-indigo-400 transition-colors">
+              {title}
+            </h3>
+          </div>
+
+          {/* New Bottom Navigation Button */}
+          <div className="w-full flex justify-end">
+             <div className="flex items-center gap-2 px-4 py-2 bg-indigo-600/20 backdrop-blur-sm border border-indigo-500/50 rounded-full group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
+                <span className="text-xs font-bold uppercase tracking-wider">Explore More</span>
+                <span className="text-lg leading-none transition-transform group-hover:translate-x-1">→</span>
+             </div>
+          </div>
         </div>
       </NavLink>
     </motion.div>
