@@ -175,19 +175,28 @@ function About() {
       <section className="pb-16 max-w-7xl mx-auto">
         <div className="mb-8">
           <span className="text-indigo-500 font-bold tracking-widest uppercase text-[10px]">Neighborhood</span>
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight uppercase mt-1">Find <span className="text-indigo-500">Us</span></h2>
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight uppercase mt-1">
+            Find <span className="text-indigo-500">Us</span>
+          </h2>
           <div className="h-[2px] w-12 bg-indigo-600 mt-2"></div>
         </div>
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="rounded-[1rem] overflow-hidden border border-white/10 h-[400px] relative shadow-2xl z-0"
+          /* Height reduced from 400px to 320px (80%) */
+          /* Updated rounded-1rem to rounded-2rem to match your cards */
+          className="rounded-[2rem] overflow-hidden border border-white/10 h-[320px] relative shadow-2xl z-0"
         >
           <MapContainer
             center={position}
             zoom={16}
             scrollWheelZoom={false}
-            style={{ height: "100%", width: "100%", filter: "invert(100%) hue-rotate(180deg) brightness(0.95) contrast(0.9)" }}
+            style={{
+              height: "100%",
+              width: "100%",
+              filter: "invert(100%) hue-rotate(180deg) brightness(0.95) contrast(0.9)"
+            }}
           >
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
