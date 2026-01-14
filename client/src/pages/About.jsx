@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { 
-  FaInstagram, FaYoutube, FaLinkedin, 
-  FaMapMarkerAlt, FaEnvelope, FaPhone, FaPaperPlane, 
-  FaHistory, FaHotel, FaUsers, FaCheckCircle, FaStar 
+import {
+  FaInstagram, FaYoutube, FaLinkedin,
+  FaMapMarkerAlt, FaEnvelope, FaPhone, FaPaperPlane,
+  FaHistory, FaHotel, FaUsers, FaCheckCircle, FaStar
 } from "react-icons/fa";
 
 // Leaflet Marker Fix
@@ -31,7 +31,7 @@ const itemVariants = {
 };
 
 function About() {
-  const position = [28.4255, 77.0650]; 
+  const position = [28.4255, 77.0650];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ function About() {
   return (
     /* Standardized padding and font-family to match Home.jsx */
     <div className="bg-black text-white px-6 md:px-16 lg:px-24 font-montserrat">
-      
+
       {/* 1. HERO SECTION - Uses the exact same rounded corners and gradient logic as Home */}
       <section className="mt-10 relative h-[70vh] w-full flex items-center justify-center overflow-hidden bg-black rounded-[2rem] shadow-2xl border border-white/5">
         <div className="absolute inset-0 z-0 overflow-hidden rounded-[2rem]">
@@ -73,7 +73,7 @@ function About() {
             transition={{ delay: 0.4 }}
             className="mt-6 text-gray-200 text-base md:text-xl max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg"
           >
-            Providing premium unisex accommodations in Sector 51, Gurgaon for over 6 years. 
+            Providing premium unisex accommodations in Sector 51, Gurgaon for over 6 years.
             Highly rated for our cleanliness and dedicated facilities for women and girl students.
           </motion.p>
         </div>
@@ -87,78 +87,82 @@ function About() {
           <div className="h-[2px] w-12 bg-indigo-600 mt-4"></div>
           <p className="text-gray-500 text-sm mt-4">Trusted quality and professional hospitality since 2020.</p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <ValueCard 
-            icon={<FaHistory className="text-indigo-400" />} 
-            title="6 Years" 
-            desc="Over six years of trusted business presence in the Gurugram community." 
+          <ValueCard
+            icon={<FaHistory className="text-indigo-400" />}
+            title="6 Years"
+            desc="Over six years of trusted business presence in the Gurugram community."
           />
-          <ValueCard 
-            icon={<FaStar className="text-yellow-500" />} 
-            title="4.6 Rating" 
-            desc="Backed by 100+ positive ratings highlighting our service quality." 
+          <ValueCard
+            icon={<FaStar className="text-yellow-500" />}
+            title="4.6 Rating"
+            desc="Backed by 100+ positive ratings highlighting our service quality."
           />
-          <ValueCard 
-            icon={<FaHotel className="text-indigo-400" />} 
-            title="Clean Rooms" 
-            desc="Consistently recognized for superior hygiene and well-maintained AC rooms." 
+          <ValueCard
+            icon={<FaHotel className="text-indigo-400" />}
+            title="Clean Rooms"
+            desc="Consistently recognized for superior hygiene and well-maintained AC rooms."
           />
         </div>
       </section>
 
-      {/* 3. CONTACT & INQUIRY */}
-      <section className="py-20 max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-stretch">
-          
-          {/* Business Info Card - Matches Home Card Style */}
+      {/* 3. CONTACT & INQUIRY - Reduced Padding and Height */}
+      <section className="py-16 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 items-stretch"> {/* items-stretch makes cards same height */}
+
+          {/* Business Info Card */}
           <motion.div
             variants={itemVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="bg-white/5 backdrop-blur-lg border border-white/10 p-10 rounded-[2rem] flex flex-col justify-between"
+            className="bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-[2rem] flex flex-col justify-between"
           >
-            <div>
-              <span className="text-indigo-500 font-bold tracking-widest uppercase text-xs">Reach Out</span>
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mt-2 mb-10">Connect <span className="text-indigo-500">Elite</span></h2>
-              <div className="space-y-10">
-                <ContactInfo icon={<FaMapMarkerAlt />} title="Location" detail="Sector 51, Gurgaon (Open 24 Hours)" />
-                <ContactInfo icon={<FaPhone />} title="Phone" detail="08460479473" />
-                <ContactInfo icon={<FaUsers />} title="Residents" detail="Unisex | Specialized Female Wings" />
-              </div>
-            </div>
+            <div className="text-left"> {/* Ensures text starts at the left */}
+              <span className="text-indigo-500 font-bold tracking-widest uppercase text-[10px] block">
+                Reach Out
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight uppercase mt-2 mb-8">
+                Connect <span className="text-indigo-500">Elite</span>
+              </h2>
 
-            <div className="mt-16 pt-10 border-t border-white/5 flex gap-8">
-                <SocialIcon icon={<FaInstagram />} link="#" color="hover:text-pink-500" />
-                <SocialIcon icon={<FaYoutube />} link="#" color="hover:text-red-500" />
-                <SocialIcon icon={<FaLinkedin />} link="#" color="hover:text-blue-400" />
+              {/* Contact List aligned to start */}
+              <div className="space-y-6">
+                <ContactInfo icon={<FaMapMarkerAlt />} title="Location" detail="Sector 51, Gurgaon" />
+                <ContactInfo icon={<FaPhone />} title="Phone" detail="08460479473" />
+                <ContactInfo icon={<FaUsers />} title="Residents" detail="Unisex Accommodations" />
+              </div>
             </div>
           </motion.div>
 
-          {/* Booking Form */}
+          {/* Booking Form Card */}
           <motion.div
             variants={itemVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="bg-white/5 backdrop-blur-lg border border-white/10 p-10 rounded-[2rem] shadow-2xl"
+            className="bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-[2rem] shadow-2xl flex flex-col justify-center"
           >
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-10">Book a <span className="text-indigo-500">Visit</span></h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <input type="text" placeholder="Full Name" className="w-full bg-black/50 border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-indigo-500 transition text-sm text-white font-medium" />
-              <input type="email" placeholder="Email Address" className="w-full bg-black/50 border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-indigo-500 transition text-sm text-white font-medium" />
-              <select className="w-full bg-black/50 border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-indigo-500 transition text-gray-400 text-sm font-medium appearance-none">
-                 <option>Accommodation Interest</option>
-                 <option>AC Room (Female)</option>
-                 <option>AC Room (Male)</option>
-                 <option>PG for Girl Students</option>
+            <h2 className="text-3xl md:text-4xl font-black tracking-tight uppercase mb-6 text-left">
+              Book a <span className="text-indigo-500">Visit</span>
+            </h2>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <input type="text" placeholder="Name" className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 outline-none focus:border-indigo-500 transition text-sm text-white font-medium" />
+                <input type="email" placeholder="Email" className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 outline-none focus:border-indigo-500 transition text-sm text-white font-medium" />
+              </div>
+              <select className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 outline-none focus:border-indigo-500 transition text-gray-400 text-sm font-medium appearance-none">
+                <option>Accommodation Interest</option>
+                <option>AC Room (Female)</option>
+                <option>AC Room (Male)</option>
               </select>
-              <textarea placeholder="Tell us your requirements..." rows="4" className="w-full bg-black/50 border border-white/10 rounded-2xl px-6 py-5 outline-none focus:border-indigo-500 transition resize-none text-sm text-white font-medium" />
+              <textarea placeholder="Requirements..." rows="2" className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 outline-none focus:border-indigo-500 transition resize-none text-sm text-white font-medium" />
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-5 rounded-2xl transition shadow-lg shadow-indigo-600/20 uppercase tracking-widest text-xs"
+                className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl transition shadow-lg uppercase tracking-widest text-[10px]"
               >
                 Submit Inquiry
               </motion.button>
@@ -167,22 +171,22 @@ function About() {
         </div>
       </section>
 
-      {/* 4. MAP SECTION */}
-      <section className="pb-24 max-w-7xl mx-auto">
-        <div className="mb-12">
-          <span className="text-indigo-500 font-bold tracking-widest uppercase text-xs">Neighborhood</span>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mt-2">Find <span className="text-indigo-500">Us</span></h2>
-          <div className="h-[2px] w-12 bg-indigo-600 mt-4"></div>
+      {/* 4. MAP SECTION - Reduced height from 550px to 400px */}
+      <section className="pb-16 max-w-7xl mx-auto">
+        <div className="mb-8">
+          <span className="text-indigo-500 font-bold tracking-widest uppercase text-[10px]">Neighborhood</span>
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight uppercase mt-1">Find <span className="text-indigo-500">Us</span></h2>
+          <div className="h-[2px] w-12 bg-indigo-600 mt-2"></div>
         </div>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="rounded-[2rem] overflow-hidden border border-white/10 h-[550px] relative shadow-2xl z-0"
+          className="rounded-[2rem] overflow-hidden border border-white/10 h-[400px] relative shadow-2xl z-0"
         >
-          <MapContainer 
-            center={position} 
-            zoom={15} 
-            scrollWheelZoom={false} 
+          <MapContainer
+            center={position}
+            zoom={15}
+            scrollWheelZoom={false}
             style={{ height: "100%", width: "100%", filter: "invert(100%) hue-rotate(180deg) brightness(0.95) contrast(0.9)" }}
           >
             <TileLayer
@@ -192,7 +196,6 @@ function About() {
             <Marker position={position}>
               <Popup>
                 <div className="text-black font-bold">JNS Elite Stay</div>
-                <div className="text-gray-600 text-xs italic font-medium">Premium AC PG Accommodations</div>
               </Popup>
             </Marker>
           </MapContainer>
@@ -202,11 +205,10 @@ function About() {
   );
 }
 
-// --- Sub-components (Updated to center-align and match Home Card feel) ---
-
+// --- Sub-components ---
 function ValueCard({ icon, title, desc }) {
   return (
-    <motion.div 
+    <motion.div
       whileHover={{ scale: 1.05, backgroundColor: "rgba(79, 70, 229, 0.1)" }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       className="bg-white/5 backdrop-blur-lg border border-white/10 p-10 rounded-[2rem] hover:border-indigo-500/50 transition-all duration-300 group flex flex-col items-center text-center shadow-xl"
@@ -220,13 +222,14 @@ function ValueCard({ icon, title, desc }) {
 
 function ContactInfo({ icon, title, detail }) {
   return (
-    <div className="flex items-start gap-6 group">
-      <div className="w-14 h-14 rounded-2xl bg-indigo-600/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-2xl group-hover:bg-indigo-600 group-hover:text-white transition-all duration-500">
+    <div className="flex items-center gap-4 group">
+      {/* Reduced from w-14 h-14 to w-11 h-11 */}
+      <div className="w-11 h-11 shrink-0 rounded-xl bg-indigo-600/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-xl group-hover:bg-indigo-600 group-hover:text-white transition-all duration-500">
         {icon}
       </div>
       <div>
-        <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 mb-1">{title}</h4>
-        <p className="text-gray-200 font-bold text-lg leading-tight">{detail}</p>
+        <h4 className="text-[9px] font-black uppercase tracking-[0.2em] text-gray-500 leading-none mb-1">{title}</h4>
+        <p className="text-gray-200 font-bold text-base leading-tight">{detail}</p>
       </div>
     </div>
   );
