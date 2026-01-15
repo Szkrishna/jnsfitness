@@ -40,7 +40,7 @@ function Header() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-4 flex items-center justify-between">
         {/* Logo Section */}
         <NavLink to="/" className="flex items-center gap-3 group">
-          <div className="relative w-12 h-12 md:w-16 md:h-16 flex items-center justify-center overflow-hidden rounded-lg border border-white/10 group-hover:border-indigo-500/50 transition-colors">
+          <div className="relative w-12 h-12 md:w-16 md:h-16 flex items-center justify-center overflow-hidden rounded-3xl border border-white/10 group-hover:border-indigo-500/50 transition-colors">
             <img
               src={jnsLogo}
               alt="JNS Logo"

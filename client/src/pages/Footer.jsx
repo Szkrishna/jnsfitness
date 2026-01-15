@@ -21,11 +21,11 @@ const Footer = () => {
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2">
               {/* Minimalist Logo container */}
-              <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/10">
+              <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center shadow-lg shadow-indigo-500/10">
                 <img
                   src={jnsLogo}
                   alt="JNS Logo"
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-cover rounded-full"
                 />
               </div>
               {/* Renamed to JNS FITNESS */}
