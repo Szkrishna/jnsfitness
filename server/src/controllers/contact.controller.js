@@ -16,6 +16,3 @@ export const addContact = (req,res)=>{
     
 })
 }
-// module.exports = {
-//   addContact
-// };

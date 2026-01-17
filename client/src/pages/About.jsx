@@ -12,6 +12,7 @@ import {
 // Leaflet Marker Fix
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
+import { useState, useEffect } from "react";
 
 const DefaultIcon = L.icon({
   iconUrl: markerIcon,
@@ -33,9 +34,92 @@ const itemVariants = {
 function About() {
   const position = [28.4255, 77.0650];
 
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    gender: "",
+    phone: "",
+    email: "",
+    interest: "",
+    message: ""
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const buildWhatsAppMessage = (data) => {
+  return `
+          New Inquiry Received
+
+          Name: ${data.name}
+          Gender: ${data.gender}
+          Phone: ${data.phone}
+          Email: ${data.email}
+          Interest: ${data.interest}
+          Message: ${data.message}
+            `;
+    };
+
+const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Inquiry Sent! The JNS team will contact you shortly.");
+    setError("");
+    setSuccess("");
+
+    if (!formData.name || !formData.phone || !formData.interest) {
+      setError("Please fill all required fields.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const response = await fetch(
+        "http://localhost:3000/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formData)
+        }
+      );
+
+      if (!response.ok) {
+        const err = await response.json();
+        throw new Error(err.message || "Submission failed");
+      }
+      debugger
+      const message = buildWhatsAppMessage(formData);
+      const whatsappNumber = "8299301605";
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+     
+      setSuccess("Redirecting to WhatsApp...");
+      setTimeout(() => {
+        window.open(whatsappURL, "_blank");
+      }, 800);
+      
+      setSuccess("Inquiry sent successfully. Our team will contact you.");
+      setFormData({
+        name: "",
+        gender: "",
+        phone: "",
+        email: "",
+        interest: "",
+        message: ""
+      });
+    } 
+    catch (err) {
+      setError(err.message || "Something went wrong");
+    } 
+    finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -148,9 +232,17 @@ function About() {
               Book a <span className="text-indigo-500">Visit</span>
             </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            {/* <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <input type="text" placeholder="Name" className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 outline-none focus:border-indigo-500 transition text-sm text-white font-medium" />
+                 <select className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 outline-none focus:border-indigo-500 transition text-gray-400 text-sm font-medium appearance-none">
+                <option>Male</option>
+                <option>Female</option>
+               
+              </select>
+              </div>
+               <div className="grid grid-cols-2 gap-4">
+                <input type="text" placeholder="Phone" className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 outline-none focus:border-indigo-500 transition text-sm text-white font-medium" />
                 <input type="email" placeholder="Email" className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 outline-none focus:border-indigo-500 transition text-sm text-white font-medium" />
               </div>
               <select className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 outline-none focus:border-indigo-500 transition text-gray-400 text-sm font-medium appearance-none">
@@ -166,7 +258,88 @@ function About() {
               >
                 Submit Inquiry
               </motion.button>
+            </form> */}
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Name"
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-sm text-white"
+                />
+
+                <select
+                  name="gender"
+                  value={formData.gender}
+                  onChange={handleChange}
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-gray-400 text-sm appearance-none"
+                >
+                  <option value="">Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Phone"
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-sm text-white"
+                />
+
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email"
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-sm text-white"
+                />
+              </div>
+
+              <select
+                name="interest"
+                value={formData.interest}
+                onChange={handleChange}
+                className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-gray-400 text-sm appearance-none"
+              >
+                <option value="">Accommodation Interest</option>
+                <option value="AC Room (Female)">AC Room (Female)</option>
+                <option value="AC Room (Male)">AC Room (Male)</option>
+              </select>
+
+              <textarea
+                name="message"
+                value={formData.requirements}
+                onChange={handleChange}
+                placeholder="Requirements..."
+                rows="2"
+                className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-sm text-white resize-none"
+              />
+
+              {/* ERROR */}
+              {error && <p className="text-red-400 text-xs font-medium">{error}</p>}
+
+              {/* SUCCESS */}
+              {success && <p className="text-green-400 text-xs font-medium">{success}</p>}
+
+              <motion.button
+                type="submit"
+                disabled={loading}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-indigo-600 hover:bg-indigo-500 disabled:opacity-60 text-white font-bold py-4 rounded-xl uppercase tracking-widest text-[10px]"
+              >
+                {loading ? "Submitting..." : "Submit Inquiry"}
+              </motion.button>
             </form>
+
           </motion.div>
         </div>
       </section>
