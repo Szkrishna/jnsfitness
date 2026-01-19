@@ -21,7 +21,7 @@ const Footer = () => {
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2">
               {/* Minimalist Logo container */}
-              <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center shadow-lg shadow-indigo-500/10">
+              <div className="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center shadow-lg shadow-indigo-500/10">
                 <img
                   src={jnsLogo}
                   alt="JNS Logo"
@@ -35,17 +35,17 @@ const Footer = () => {
             </div>
 
             {/* Description reduced to a minimal quote */}
-            <p className="text-gray-500 text-[11px] tracking-wide uppercase">
+            <p className="text-gray-300 text-[12px] tracking-wide uppercase mt-1">
               Discipline is the bridge to excellence.
             </p>
           </div>
 
           {/* 2. Contact Details Section - Updated Email */}
           <div className="flex flex-col gap-3 text-left">
-            <h3 className="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold">
+            <h3 className="text-xs uppercase tracking-[0.2em] text-gray-300 font-bold">
               Reach Us
             </h3>
-            <ul className="space-y-2 text-sm text-gray-400">
+            <ul className="space-y-2 text-sm text-gray-300">
               <li className="flex items-center gap-3 group">
                 <FaMapMarkerAlt className="text-indigo-400 group-hover:scale-110 transition-transform" />
                 <span>Sector 51, Gurgaon (Open 24 Hours)</span>
@@ -64,10 +64,10 @@ const Footer = () => {
 
           {/* 3. Follow Us Section - Updated Instagram Link */}
           <div className="flex flex-col gap-4 text-left">
-            <h3 className="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold">
+            <h3 className="text-xs uppercase tracking-[0.2em] text-gray-300 font-bold">
               Follow Us
             </h3>
-            <div className="flex gap-4">
+            <div className="flex justify-center">
               <SocialIcon
                 icon={<FaInstagram size={24} />}
                 link="https://www.instagram.com/jns_coliving?igsh=cXJ1eWpmZXg4ZTlr"
