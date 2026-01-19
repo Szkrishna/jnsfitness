@@ -187,13 +187,26 @@ function About() {
 
           {/* Address/Contact Card - col-5 */}
           <motion.div
-            variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="lg:col-span-5 bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-[2rem] flex flex-col justify-center"
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="lg:col-span-5 bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-[2rem] flex flex-col justify-between"
           >
-            <div className="space-y-10">
-              <ContactInfo icon={<FaMapMarkerAlt />} title="Location" detail="Sector 51, Gurgaon, Haryana" />
-              <ContactInfo icon={<FaPhone />} title="Phone" detail="+91 84604 79473" />
-              <ContactInfo icon={<FaUsers />} title="Residents" detail="Premium Unisex Accommodations" />
+            <div className="text-left"> {/* Ensures text starts at the left */}
+              <span className="text-indigo-500 font-bold tracking-widest uppercase text-[10px] block">
+                Reach Out
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black tracking-tight uppercase mt-2 mb-8">
+                Connect <span className="text-indigo-500">Elite</span>
+              </h2>
+
+              {/* Contact List aligned to start */}
+              <div className="space-y-6">
+                <ContactInfo icon={<FaMapMarkerAlt />} title="Location" detail="Sector 51, Gurgaon" />
+                <ContactInfo icon={<FaPhone />} title="Phone" detail="08460479473" />
+                <ContactInfo icon={<FaUsers />} title="Residents" detail="Unisex Accommodations" />
+              </div>
             </div>
           </motion.div>
 
