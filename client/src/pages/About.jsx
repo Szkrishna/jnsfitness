@@ -182,7 +182,6 @@ function About() {
           </p>
         </div>
 
-        {/* GRID: col-5 and col-7 */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
           {/* Address/Contact Card - col-5 */}
@@ -191,53 +190,113 @@ function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="lg:col-span-5 bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-[2rem] flex flex-col justify-between"
+            className="lg:col-span-6 bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-[2rem] flex flex-col justify-between"
           >
             <div className="text-left"> {/* Ensures text starts at the left */}
-              <span className="text-indigo-500 font-bold tracking-widest uppercase text-[10px] block">
+              <span className="text-indigo-500 font-bold tracking-widest uppercase text-[10px] block mt-1">
                 Reach Out
               </span>
-              <h2 className="text-3xl md:text-4xl font-black tracking-tight uppercase mt-2 mb-8">
+              <h2 className="text-2xl md:text-3xl font-black tracking-tight uppercase mt-2 mb-10">
                 Connect <span className="text-indigo-500">Elite</span>
               </h2>
 
               {/* Contact List aligned to start */}
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <ContactInfo icon={<FaMapMarkerAlt />} title="Location" detail="Sector 51, Gurgaon" />
                 <ContactInfo icon={<FaPhone />} title="Phone" detail="08460479473" />
-                <ContactInfo icon={<FaUsers />} title="Residents" detail="Unisex Accommodations" />
+                <ContactInfo
+                  icon={<FaUsers />}
+                  title="Residents"
+                  detail="Unisex Accommodations (Facilities via Add-on)"
+                />
               </div>
             </div>
           </motion.div>
 
-          {/* Inquiry Form - col-7 */}
           <motion.div
-            variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="lg:col-span-7 bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-[2rem] shadow-2xl"
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="lg:col-span-6 bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-[2rem] shadow-2xl flex flex-col justify-center"
           >
-            <h2 className="text-3xl font-black tracking-tight uppercase mb-8 text-center md:text-left">Book a <span className="text-indigo-500">Visit</span></h2>
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <input type="text" name="name" required value={formData.name} onChange={handleChange} placeholder="Name" className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 text-sm text-white focus:border-indigo-500 outline-none transition-all" />
-                <input type="text" name="phone" required value={formData.phone} onChange={handleChange} placeholder="Phone" className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 text-sm text-white focus:border-indigo-500 outline-none transition-all" />
+            <h2 className="text-3xl font-black tracking-tight uppercase mb-6 text-center md:text-left">
+              Book a <span className="text-indigo-500">Visit</span>
+            </h2>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Name with validation */}
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  minLength="3"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Full Name"
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-sm text-white focus:border-indigo-500 outline-none transition-all"
+                />
+                {/* Phone with pattern validation (10 digits) */}
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  pattern="[0-9]{10}"
+                  title="Please enter a valid 10-digit phone number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Phone (10-digit)"
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-sm text-white focus:border-indigo-500 outline-none transition-all"
+                />
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 text-sm text-white focus:border-indigo-500 outline-none transition-all" />
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Email"
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-sm text-white focus:border-indigo-500 outline-none transition-all"
+                />
                 <div className="relative group">
-                  <select name="gender" value={formData.gender} onChange={handleChange} className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 text-white text-sm appearance-none outline-none cursor-pointer focus:border-indigo-500 transition-all">
+                  <select
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleChange}
+                    className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-white text-sm appearance-none outline-none cursor-pointer focus:border-indigo-500 transition-all"
+                  >
                     <option value="" className="bg-black text-gray-400">Gender</option>
                     <option value="Male" className="bg-black">Male</option>
                     <option value="Female" className="bg-black">Female</option>
                   </select>
                 </div>
               </div>
-              <select name="interest" value={formData.interest} onChange={handleChange} className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 text-white text-sm appearance-none outline-none cursor-pointer focus:border-indigo-500 transition-all">
-                <option value="" className="bg-black">Select Interest</option>
+
+              {/* Interest with required validation */}
+              <select
+                name="interest"
+                required
+                value={formData.interest}
+                onChange={handleChange}
+                className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-white text-sm appearance-none outline-none cursor-pointer focus:border-indigo-500 transition-all"
+              >
+                <option value="" className="bg-black text-gray-400">Select Interest (Required)</option>
                 <option value="Badminton" className="bg-black">Badminton</option>
                 <option value="GYM" className="bg-black">GYM</option>
                 <option value="Coliving" className="bg-black">Coliving</option>
               </select>
-              <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Special Requirements..." rows="3" className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4 text-sm text-white resize-none focus:border-indigo-500 outline-none transition-all" />
+
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Special Requirements..."
+                rows="2"
+                className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-3 text-sm text-white resize-none focus:border-indigo-500 outline-none transition-all"
+              />
+
               <motion.button
                 type="submit"
                 disabled={loading}
@@ -285,11 +344,11 @@ function ValueCard({ icon, title, desc }) {
 
 function ContactInfo({ icon, title, detail }) {
   return (
-    <div className="flex items-start gap-4">
-      <div className="w-11 h-11 shrink-0 rounded-xl bg-indigo-600/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-xl">{icon}</div>
+    <div className="flex items-center justify-start gap-4">
+      <div className="w-12 h-12 shrink-0 rounded-xl bg-indigo-600/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-xl">{icon}</div>
       <div className="flex flex-col">
-        <h4 className="text-[9px] font-black uppercase tracking-[0.2em] text-gray-500 mb-1">{title}</h4>
-        <p className="text-gray-200 font-bold text-sm leading-tight">{detail}</p>
+        <h4 className="text-[12px] font-black uppercase tracking-[0.2em] text-gray-500 mb-1">{title}</h4>
+        <p className="text-gray-200 font-bold text-lg leading-tight">{detail}</p>
       </div>
     </div>
   );
