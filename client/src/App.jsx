@@ -14,7 +14,7 @@ function App() {
       {/* The min-h-screen and flex-col classes ensure the 
         Footer stays at the bottom of the viewport 
       */}
-      <div className="min-h-screen flex flex-col bg-black">
+      <div className="min-h-screen flex flex-col bg-zinc-950">
         <Header />
 
         {/* 1. flex-grow: pushes footer to bottom

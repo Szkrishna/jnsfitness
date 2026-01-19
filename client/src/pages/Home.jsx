@@ -40,10 +40,10 @@ function Home() {
   }, []);
 
   return (
-    <div className="bg-black text-white px-6 md:px-16 lg:px-24">
+    <div className="bg-zinc-950 text-white px-6 md:px-16 lg:px-24">
       
       {/* 1. HERO SECTION */}
-      <section className="mt-10 relative max-h-[70vh] w-full flex items-center justify-center overflow-hidden bg-black rounded-[2rem] shadow-2xl">
+      <section className="mt-10 relative max-h-[70vh] w-full flex items-center justify-center overflow-hidden bg-zinc-950 rounded-[2rem] shadow-2xl">
         <div className="absolute inset-0 z-0 overflow-hidden rounded-[2rem]">
           <video
             ref={videoRef}
@@ -55,7 +55,7 @@ function Home() {
           >
             <source src={heroVideo} type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-black/60 z-[1]" />
+          <div className="absolute inset-0 bg-zinc-950/60 z-[1]" />
           <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] animate-pulse z-[2]" />
           <div className="absolute bottom-20 -right-20 w-[400px] h-[400px] bg-purple-600/20 rounded-full blur-[100px] z-[2]" />
         </div>
@@ -114,8 +114,8 @@ function Home() {
         </div>
 
         <div className="relative group/swiper-container">
-          <button className="swiper-prev-button absolute left-2 md:left-[-20px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/20 bg-black/50 backdrop-blur-md flex items-center justify-center hover:bg-indigo-600 transition-all text-white opacity-0 group-hover/swiper-container:opacity-100">←</button>
-          <button className="swiper-next-button absolute right-2 md:right-[-20px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/20 bg-black/50 backdrop-blur-md flex items-center justify-center hover:bg-indigo-600 transition-all text-white opacity-0 group-hover/swiper-container:opacity-100">→</button>
+          <button className="swiper-prev-button absolute left-2 md:left-[-20px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/20 bg-zinc-950/50 backdrop-blur-md flex items-center justify-center hover:bg-indigo-600 transition-all text-white opacity-0 group-hover/swiper-container:opacity-100">←</button>
+          <button className="swiper-next-button absolute right-2 md:right-[-20px] top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/20 bg-zinc-950/50 backdrop-blur-md flex items-center justify-center hover:bg-indigo-600 transition-all text-white opacity-0 group-hover/swiper-container:opacity-100">→</button>
 
           <Swiper
             effect={"coverflow"}
@@ -208,7 +208,7 @@ function Home() {
                 <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                   <source src={heroVideo} type="video/mp4" />
                 </video>
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-all">
+                <div className="absolute inset-0 flex items-center justify-center bg-zinc-950/20 group-hover:bg-zinc-950/40 transition-all">
                   <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 group-hover:scale-110 transition">
                     <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-white border-b-[10px] border-b-transparent ml-1" />
                   </div>
@@ -235,7 +235,7 @@ function EcoCard({ to, title, bgImage, status, statusColor }) {
         
         <div className="relative z-10 p-8 flex flex-col justify-between items-start text-left min-h-[350px]">
           <div>
-            <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 bg-black/60 border border-white/20 rounded-full ${statusColor}`}>
+            <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 bg-zinc-950/60 border border-white/20 rounded-full ${statusColor}`}>
               {status}
             </span>
             <h3 className="text-3xl font-bold text-white mt-4 group-hover:text-indigo-400 transition-colors">

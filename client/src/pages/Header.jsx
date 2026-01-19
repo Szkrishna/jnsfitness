@@ -8,8 +8,8 @@ function Header() {
   const linkClasses = ({ isActive }) =>
     `${navItemBase} ${isActive
       ? `
-          text-indigo-300
-          bg-indigo-500/10
+          text-indigo-200
+          bg-indigo-600/10
           ring-1 ring-indigo-400/20
           shadow-[0_0_15px_rgba(99,102,241,0.3)]
           after:absolute
@@ -20,7 +20,7 @@ function Header() {
           after:rounded-full
         `
       : `
-          text-gray-400
+          text-gray-300
           hover:text-white
           hover:bg-white/5
           after:absolute
@@ -35,8 +35,8 @@ function Header() {
     }`;
 
   return (
-    /* Changed bg-black/95 to a slightly more transparent black for better blur effect */
-    <header className="sticky top-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
+    /* Changed bg-zinc-950/95 to a slightly more transparent black for better blur effect */
+    <header className="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-xl border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-4 flex items-center justify-between">
         {/* Logo Section */}
         <NavLink to="/" className="flex items-center gap-3 group">

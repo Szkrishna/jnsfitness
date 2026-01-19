@@ -96,13 +96,13 @@ function About() {
   };
 
   return (
-    <div className="bg-black text-white px-6 md:px-16 lg:px-24 font-montserrat">
+    <div className="bg-zinc-950 text-white px-6 md:px-16 lg:px-24 font-montserrat">
       <Toaster position="top-center" reverseOrder={false} />
 
       {/* 1. HERO SECTION - Uses the exact same rounded corners and gradient logic as Home */}
-      <section className="mt-16 relative h-[80vh] w-full flex items-center justify-center overflow-hidden bg-black rounded-[2rem] shadow-2xl border border-white/5">
+      <section className="mt-16 relative h-[70vh] w-full flex items-center justify-center overflow-hidden bg-zinc-950rounded-[2rem] shadow-2xl">
         <div className="absolute inset-0 z-0 overflow-hidden rounded-[2rem]">
-          <div className="absolute inset-0 bg-black/60 z-[1]" />
+          <div className="absolute inset-0 bg-zinc-950/60 z-[1]" />
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/40 to-black z-[1]" />
           <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] animate-pulse z-[2]" />
           <div className="absolute bottom-20 -right-20 w-[400px] h-[400px] bg-purple-600/20 rounded-full blur-[100px] z-[2]" />
@@ -235,7 +235,7 @@ function About() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Full Name"
-                  className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-sm text-white focus:border-indigo-500 outline-none transition-all"
+                  className="w-full bg-zinc-950/50 border border-white/10 rounded-xl px-5 py-3 text-sm text-white focus:border-indigo-500 outline-none transition-all"
                 />
                 {/* Phone with pattern validation (10 digits) */}
                 <input
@@ -247,7 +247,7 @@ function About() {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="Phone (10-digit)"
-                  className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-sm text-white focus:border-indigo-500 outline-none transition-all"
+                  className="w-full bg-zinc-950/50 border border-white/10 rounded-xl px-5 py-3 text-sm text-white focus:border-indigo-500 outline-none transition-all"
                 />
               </div>
 
@@ -258,18 +258,18 @@ function About() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email"
-                  className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-sm text-white focus:border-indigo-500 outline-none transition-all"
+                  className="w-full bg-zinc-950/50 border border-white/10 rounded-xl px-5 py-3 text-sm text-white focus:border-indigo-500 outline-none transition-all"
                 />
                 <div className="relative group">
                   <select
                     name="gender"
                     value={formData.gender}
                     onChange={handleChange}
-                    className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-white text-sm appearance-none outline-none cursor-pointer focus:border-indigo-500 transition-all"
+                    className="w-full bg-zinc-950/50 border border-white/10 rounded-xl px-5 py-3 text-white text-sm appearance-none outline-none cursor-pointer focus:border-indigo-500 transition-all"
                   >
-                    <option value="" className="bg-black text-gray-400">Gender</option>
-                    <option value="Male" className="bg-black">Male</option>
-                    <option value="Female" className="bg-black">Female</option>
+                    <option value="" className="bg-zinc-950text-gray-400">Gender</option>
+                    <option value="Male" className="bg-zinc-950">Male</option>
+                    <option value="Female" className="bg-zinc-950">Female</option>
                   </select>
                 </div>
               </div>
@@ -280,12 +280,12 @@ function About() {
                 required
                 value={formData.interest}
                 onChange={handleChange}
-                className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-white text-sm appearance-none outline-none cursor-pointer focus:border-indigo-500 transition-all"
+                className="w-full bg-zinc-950/50 border border-white/10 rounded-xl px-5 py-3 text-white text-sm appearance-none outline-none cursor-pointer focus:border-indigo-500 transition-all"
               >
-                <option value="" className="bg-black text-gray-400">Select Interest (Required)</option>
-                <option value="Badminton" className="bg-black">Badminton</option>
-                <option value="GYM" className="bg-black">GYM</option>
-                <option value="Coliving" className="bg-black">Coliving</option>
+                <option value="" className="bg-zinc-950text-gray-400">Select Interest (Required)</option>
+                <option value="Badminton" className="bg-zinc-950">Badminton</option>
+                <option value="GYM" className="bg-zinc-950">GYM</option>
+                <option value="Coliving" className="bg-zinc-950">Coliving</option>
               </select>
 
               <textarea
@@ -294,7 +294,7 @@ function About() {
                 onChange={handleChange}
                 placeholder="Special Requirements..."
                 rows="2"
-                className="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-3 text-sm text-white resize-none focus:border-indigo-500 outline-none transition-all"
+                className="w-full bg-zinc-950/40 border border-white/10 rounded-xl px-5 py-3 text-sm text-white resize-none focus:border-indigo-500 outline-none transition-all"
               />
 
               <motion.button
