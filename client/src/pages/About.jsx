@@ -55,7 +55,7 @@ function About() {
   };
 
   const buildWhatsAppMessage = (data) => {
-  return `
+    return `
           New Inquiry Received
 
           Name: ${data.name}
@@ -65,9 +65,9 @@ function About() {
           Interest: ${data.interest}
           Message: ${data.message}
             `;
-    };
+  };
 
-const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
@@ -94,16 +94,15 @@ const handleSubmit = async (e) => {
         const err = await response.json();
         throw new Error(err.message || "Submission failed");
       }
-      debugger
       const message = buildWhatsAppMessage(formData);
       const whatsappNumber = "8299301605";
       const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-     
+
       setSuccess("Redirecting to WhatsApp...");
       setTimeout(() => {
         window.open(whatsappURL, "_blank");
       }, 800);
-      
+
       setSuccess("Inquiry sent successfully. Our team will contact you.");
       setFormData({
         name: "",
@@ -113,10 +112,10 @@ const handleSubmit = async (e) => {
         interest: "",
         message: ""
       });
-    } 
+    }
     catch (err) {
       setError(err.message || "Something went wrong");
-    } 
+    }
     finally {
       setLoading(false);
     }
@@ -212,7 +211,7 @@ const handleSubmit = async (e) => {
               </h2>
 
               {/* Contact List aligned to start */}
-              <div className="space-y-6">
+              <div className="space-y-10">
                 <ContactInfo icon={<FaMapMarkerAlt />} title="Location" detail="Sector 51, Gurgaon" />
                 <ContactInfo icon={<FaPhone />} title="Phone" detail="08460479473" />
                 <ContactInfo icon={<FaUsers />} title="Residents" detail="Unisex Accommodations" />
@@ -232,34 +231,6 @@ const handleSubmit = async (e) => {
               Book a <span className="text-indigo-500">Visit</span>
             </h2>
 
-            {/* <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <input type="text" placeholder="Name" className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 outline-none focus:border-indigo-500 transition text-sm text-white font-medium" />
-                 <select className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 outline-none focus:border-indigo-500 transition text-gray-400 text-sm font-medium appearance-none">
-                <option>Male</option>
-                <option>Female</option>
-               
-              </select>
-              </div>
-               <div className="grid grid-cols-2 gap-4">
-                <input type="text" placeholder="Phone" className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 outline-none focus:border-indigo-500 transition text-sm text-white font-medium" />
-                <input type="email" placeholder="Email" className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 outline-none focus:border-indigo-500 transition text-sm text-white font-medium" />
-              </div>
-              <select className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 outline-none focus:border-indigo-500 transition text-gray-400 text-sm font-medium appearance-none">
-                <option>Accommodation Interest</option>
-                <option>AC Room (Female)</option>
-                <option>AC Room (Male)</option>
-              </select>
-              <textarea placeholder="Requirements..." rows="2" className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 outline-none focus:border-indigo-500 transition resize-none text-sm text-white font-medium" />
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl transition shadow-lg uppercase tracking-widest text-[10px]"
-              >
-                Submit Inquiry
-              </motion.button>
-            </form> */}
-
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <input
@@ -271,16 +242,26 @@ const handleSubmit = async (e) => {
                   className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-sm text-white"
                 />
 
-                <select
-                  name="gender"
-                  value={formData.gender}
-                  onChange={handleChange}
-                  className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-gray-400 text-sm appearance-none"
-                >
-                  <option value="">Gender</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                </select>
+                <div className="relative group">
+                  <select
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleChange}
+                    className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-white text-sm appearance-none outline-none focus:border-white/30 transition-all cursor-pointer"
+                  >
+                    {/* Setting a solid background color for options to ensure visibility */}
+                    <option value="" className="bg-[#121212] text-gray-400">Gender</option>
+                    <option value="Male" className="bg-[#121212] text-white">Male</option>
+                    <option value="Female" className="bg-[#121212] text-white">Female</option>
+                  </select>
+
+                  {/* Custom Arrow Icon */}
+                  <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-500 group-hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M7.247 11.14 2.451 5.658C2.185 5.355 2.408 4.861 2.821 4.861h9.358c.413 0 .636.494.37.797l-4.796 5.482a.5.5 0 0 1-.748 0z" />
+                    </svg>
+                  </div>
+                </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
@@ -303,16 +284,26 @@ const handleSubmit = async (e) => {
                 />
               </div>
 
-              <select
-                name="interest"
-                value={formData.interest}
-                onChange={handleChange}
-                className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-gray-400 text-sm appearance-none"
-              >
-                <option value="">Accommodation Interest</option>
-                <option value="AC Room (Female)">AC Room (Female)</option>
-                <option value="AC Room (Male)">AC Room (Male)</option>
-              </select>
+              <div className="relative group w-full">
+                <select
+                  name="interest"
+                  value={formData.interest}
+                  onChange={handleChange}
+                  className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-3 text-white text-sm appearance-none outline-none focus:border-white/30 transition-all cursor-pointer"
+                >
+                  <option value="" className="bg-[#121212] text-white">Select Interest</option>
+                  <option value="Badminton" className="bg-[#121212] text-white">Badminton</option>
+                  <option value="GYM" className="bg-[#121212] text-white">GYM</option>
+                  <option value="Coliving" className="bg-[#121212] text-white">Coliving</option>
+                </select>
+
+                {/* Custom Arrow Icon */}
+                  <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-500 group-hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M7.247 11.14 2.451 5.658C2.185 5.355 2.408 4.861 2.821 4.861h9.358c.413 0 .636.494.37.797l-4.796 5.482a.5.5 0 0 1-.748 0z" />
+                    </svg>
+                  </div>
+              </div>
 
               <textarea
                 name="message"
